@@ -89,13 +89,13 @@ export function Footer() {
           </ul>
           <ul className="mt-6 flex flex-col gap-3 border-t border-white/5 pt-5 text-sm text-silver-500">
             <li className="flex items-center gap-2">
-              <Phone className="h-3.5 w-3.5 text-gold-500" /> +1 (800) 555-2739
+              <Phone className="h-3.5 w-3.5 text-gold-500" /> +44 7342 295049
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-3.5 w-3.5 text-gold-500" /> support@apexltd.com
             </li>
             <li className="flex items-center gap-2">
-              <MapPin className="h-3.5 w-3.5 text-gold-500" /> New York, NY
+              <MapPin className="h-3.5 w-3.5 text-gold-500" /> Leeds, LS15 0AS, UK
             </li>
           </ul>
         </div>

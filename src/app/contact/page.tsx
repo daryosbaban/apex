@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 };
 
 const CHANNELS = [
-  { icon: Phone, label: 'Phone', value: '+1 (800) 555-2739' },
-  { icon: MessageCircle, label: 'WhatsApp', value: '+1 (800) 555-8412' },
+  { icon: Phone, label: 'Phone', value: '+44 7342 295049' },
+  { icon: MessageCircle, label: 'WhatsApp', value: '+44 7342 295049' },
   { icon: Mail, label: 'Email', value: 'support@apexltd.com' },
   { icon: Instagram, label: 'Instagram', value: '@apexltd' },
   { icon: Facebook, label: 'Facebook', value: '/apexltd' },
-  { icon: MapPin, label: 'Location', value: '5th Avenue, New York, NY 10001' },
+  { icon: MapPin, label: 'Location', value: '174 Cartmell Drive, Leeds, LS15 0AS, UK' },
 ];
 
 export default function ContactPage() {
