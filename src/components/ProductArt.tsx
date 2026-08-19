@@ -112,7 +112,7 @@ export function ProductArt({
       )}
       {showLabel && (
         <div className={`absolute right-3 top-3 text-[9px] font-medium uppercase tracking-widest2 ${isGold ? 'text-gold-500/70' : 'text-silver-500/70'}`}>
-          APEX
+          CAATG
         </div>
       )}
     </div>

@@ -12,7 +12,7 @@ export default function TermsPage() {
       </div>
       <div className="max-w-2xl space-y-6 text-sm leading-relaxed text-silver-400">
         <p>
-          By accessing and using the APEX LTD website, you agree to be bound by these Terms of Service. Please read
+          By accessing and using the CAATG LTD website, you agree to be bound by these Terms of Service. Please read
           them carefully before making a purchase.
         </p>
         <p>
@@ -29,7 +29,7 @@ export default function TermsPage() {
           on each product page.
         </p>
         <p>
-          <strong className="text-white">Limitation of Liability:</strong> APEX LTD is not liable for indirect or
+          <strong className="text-white">Limitation of Liability:</strong> CAATG LTD is not liable for indirect or
           incidental damages arising from the use of our products or services.
         </p>
       </div>

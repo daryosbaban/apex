@@ -63,7 +63,7 @@ export default function HomePage() {
             <div className="relative z-10 flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-xl">
                 <span className="eyebrow">Limited-Time Offers</span>
-                <h2 className="section-heading mt-3">The Best Deals. At Their Apex.</h2>
+                <h2 className="section-heading mt-3">The Best Deals. Only at CAATG.</h2>
                 <p className="mt-4 text-sm text-silver-400">
                   Save on flagship smartphones, laptops, audio and more — for a limited time only.
                 </p>

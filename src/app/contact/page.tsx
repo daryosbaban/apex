@@ -4,15 +4,15 @@ import { ContactForm } from './ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with the APEX LTD team — phone, WhatsApp, email and social channels.',
+  description: 'Get in touch with the CAATG LTD team — phone, WhatsApp, email and social channels.',
 };
 
 const CHANNELS = [
-  { icon: Phone, label: 'Phone', value: '+44 7342 295049' },
-  { icon: MessageCircle, label: 'WhatsApp', value: '+44 7342 295049' },
-  { icon: Mail, label: 'Email', value: 'support@apexltd.com' },
-  { icon: Instagram, label: 'Instagram', value: '@apexltd' },
-  { icon: Facebook, label: 'Facebook', value: '/apexltd' },
+  { icon: Phone, label: 'Phone', value: '+44 7348 258677' },
+  { icon: MessageCircle, label: 'WhatsApp', value: '+44 7348 258677' },
+  { icon: Mail, label: 'Email', value: 'support@caatgltd.com' },
+  { icon: Instagram, label: 'Instagram', value: '@caatgltd' },
+  { icon: Facebook, label: 'Facebook', value: '/caatgltd' },
   { icon: MapPin, label: 'Location', value: '174 Cartmell Drive, Leeds, LS15 0AS, UK' },
 ];
 
@@ -21,7 +21,7 @@ export default function ContactPage() {
     <div className="container-apex py-16">
       <div className="mb-12 text-center">
         <span className="eyebrow">We&rsquo;d Love to Hear From You</span>
-        <h1 className="section-heading mt-3">Contact APEX LTD</h1>
+        <h1 className="section-heading mt-3">Contact CAATG LTD</h1>
         <p className="mx-auto mt-4 max-w-lg text-sm text-silver-500">
           Questions about an order, a product, or a partnership? Reach out through the form below or any of our
           direct channels.

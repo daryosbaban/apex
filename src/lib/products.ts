@@ -1,6 +1,6 @@
 import { Product } from './types';
 
-const STANDARD_WARRANTY = '1-Year APEX LTD Limited Warranty';
+const STANDARD_WARRANTY = '1-Year CAATG LTD Limited Warranty';
 const EXTENDED_WARRANTY = '2-Year Manufacturer Warranty';
 const FAST_DELIVERY = 'Free express delivery in 2–4 business days';
 const STANDARD_DELIVERY = 'Free standard delivery in 3–6 business days';

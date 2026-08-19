@@ -1,4 +1,4 @@
-# APEX LTD
+# CAATG LTD
 
 Premium technology and electronics e-commerce storefront, built with Next.js 14 (App Router), TypeScript and Tailwind CSS.
 

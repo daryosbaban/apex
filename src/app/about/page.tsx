@@ -4,7 +4,7 @@ import { LogoMarkOnly } from '@/components/Logo';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about APEX LTD — a modern technology and electronics retailer built on trust, quality and premium service.',
+  description: 'Learn about CAATG LTD — a modern technology and electronics retailer built on trust, quality and premium service.',
 };
 
 const PILLARS = [
@@ -20,7 +20,7 @@ const PILLARS = [
   },
   {
     icon: Award,
-    title: 'Why APEX',
+    title: 'Why CAATG',
     text: 'We partner directly with trusted global brands, rigorously vet every product, and back every purchase with real warranty and support — no shortcuts.',
   },
   {
@@ -41,12 +41,12 @@ export default function AboutPage() {
       <section className="border-b border-white/[0.06] py-24">
         <div className="container-apex flex flex-col items-center gap-6 text-center">
           <LogoMarkOnly className="h-16 w-16" />
-          <span className="eyebrow">About APEX LTD</span>
+          <span className="eyebrow">About CAATG LTD</span>
           <h1 className="max-w-2xl font-display text-4xl font-bold text-white sm:text-5xl">
             Technology retail, <span className="gold-text">reimagined.</span>
           </h1>
           <p className="max-w-2xl text-sm leading-relaxed text-silver-400 sm:text-base">
-            APEX LTD is a modern technology and electronics retailer focused on bringing customers quality devices,
+            CAATG LTD is a modern technology and electronics retailer focused on bringing customers quality devices,
             trusted brands, competitive pricing and a premium shopping experience. We offer a wide selection of
             electronics and technology products for everyday users, professionals, gamers and businesses.
           </p>

@@ -33,7 +33,7 @@ export function Footer() {
         <div className="sm:col-span-2 lg:col-span-2">
           <Logo showTagline markClassName="h-9 w-9" size="md" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-silver-500">
-            APEX LTD is a premium technology and electronics retailer bringing customers authentic devices,
+            CAATG LTD is a premium technology and electronics retailer bringing customers authentic devices,
             trusted brands and a shopping experience built to the highest standard.
           </p>
           <div className="mt-6 flex items-center gap-3">
@@ -89,10 +89,10 @@ export function Footer() {
           </ul>
           <ul className="mt-6 flex flex-col gap-3 border-t border-white/5 pt-5 text-sm text-silver-500">
             <li className="flex items-center gap-2">
-              <Phone className="h-3.5 w-3.5 text-gold-500" /> +44 7342 295049
+              <Phone className="h-3.5 w-3.5 text-gold-500" /> +44 7348 258677
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-3.5 w-3.5 text-gold-500" /> support@apexltd.com
+              <Mail className="h-3.5 w-3.5 text-gold-500" /> support@caatgltd.com
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-3.5 w-3.5 text-gold-500" /> Leeds, LS15 0AS, UK
@@ -103,7 +103,7 @@ export function Footer() {
 
       <div className="border-t border-white/[0.06]">
         <div className="container-apex flex flex-col items-center justify-between gap-3 py-6 text-xs text-silver-600 sm:flex-row">
-          <p>&copy; 2026 APEX LTD. All Rights Reserved.</p>
+          <p>&copy; 2026 CAATG LTD. All Rights Reserved.</p>
           <div className="flex gap-5">
             <Link href="/privacy" className="hover:text-gold-400">
               Privacy Policy

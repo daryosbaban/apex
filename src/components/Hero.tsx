@@ -50,9 +50,9 @@ export function Hero() {
             className="fade-up font-display text-5xl font-bold leading-[1.05] text-white sm:text-6xl md:text-7xl"
             style={{ animationDelay: '0.15s' }}
           >
-            Technology
+            Technology,
             <br />
-            at Its <span className="gold-text text-shadow-glow">Apex.</span>
+            <span className="gold-text text-shadow-glow">Elevated.</span>
           </h1>
           <p className="fade-up mt-7 max-w-xl text-base leading-relaxed text-silver-400 sm:text-lg" style={{ animationDelay: '0.3s' }}>
             Discover the latest smartphones, laptops, gaming devices and electronics — all in one place.

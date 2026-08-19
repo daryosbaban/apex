@@ -3,14 +3,14 @@ import Link from 'next/link';
 function LogoMark({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 300 260"
+      viewBox="0 0 300 300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="apexSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="caatgSilver" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f7f8f9" />
           <stop offset="22%" stopColor="#e2e4e8" />
           <stop offset="45%" stopColor="#9a9fa9" />
@@ -18,7 +18,7 @@ function LogoMark({ className }: { className?: string }) {
           <stop offset="80%" stopColor="#e8eaed" />
           <stop offset="100%" stopColor="#a9adb8" />
         </linearGradient>
-        <linearGradient id="apexGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="caatgGold" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f2dfa8" />
           <stop offset="30%" stopColor="#d4ab48" />
           <stop offset="55%" stopColor="#a9803a" />
@@ -26,29 +26,21 @@ function LogoMark({ className }: { className?: string }) {
           <stop offset="100%" stopColor="#c9a24a" />
         </linearGradient>
       </defs>
-      {/* Silver peak */}
+      {/* Silver bracket — an open, embracing "C" */}
       <polyline
-        points="34,224 148,20 190,92"
+        points="205,70 95,70 95,230 205,230"
         fill="none"
-        stroke="url(#apexSilver)"
-        strokeWidth="34"
+        stroke="url(#caatgSilver)"
+        strokeWidth="32"
         strokeLinejoin="round"
         strokeLinecap="round"
       />
+      {/* Gold chevron accent, overlapping the bracket's opening */}
       <polyline
-        points="148,20 108,224"
+        points="150,230 205,150 245,230"
         fill="none"
-        stroke="url(#apexSilver)"
-        strokeWidth="34"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-      {/* Gold peak, offset lower-right, overlapping */}
-      <polyline
-        points="158,224 234,84 266,224"
-        fill="none"
-        stroke="url(#apexGold)"
-        strokeWidth="30"
+        stroke="url(#caatgGold)"
+        strokeWidth="26"
         strokeLinejoin="round"
         strokeLinecap="round"
       />
@@ -63,7 +55,7 @@ function Wordmark({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
         tone === 'light' ? 'bg-metal-gradient' : 'bg-gradient-to-b from-obsidian-700 to-obsidian-900'
       }`}
     >
-      APEX
+      CAATG
     </span>
   );
 }

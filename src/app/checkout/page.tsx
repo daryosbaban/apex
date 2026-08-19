@@ -21,7 +21,7 @@ export default function CheckoutPage() {
   const [payment, setPayment] = useState<PaymentMethod>('card');
   const [placing, setPlacing] = useState(false);
   const [placed, setPlaced] = useState(false);
-  const [orderId] = useState(() => `APEX-${Math.floor(100000 + Math.random() * 900000)}`);
+  const [orderId] = useState(() => `CAATG-${Math.floor(100000 + Math.random() * 900000)}`);
 
   const items = lines
     .map((line) => ({ line, product: products.find((p) => p.id === line.productId) }))
@@ -45,7 +45,7 @@ export default function CheckoutPage() {
         <CheckCircle2 className="h-16 w-16 text-gold-400" />
         <h1 className="section-heading">Order Confirmed</h1>
         <p className="max-w-md text-sm text-silver-500">
-          Thank you for shopping with APEX LTD. Your order <span className="text-gold-400">#{orderId}</span> has been
+          Thank you for shopping with CAATG LTD. Your order <span className="text-gold-400">#{orderId}</span> has been
           placed. A confirmation email will be sent shortly. This is a demo checkout — no payment was processed.
         </p>
         <Link href="/shop" className="btn-gold mt-4">

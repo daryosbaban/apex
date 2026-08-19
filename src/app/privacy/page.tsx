@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       </div>
       <div className="max-w-2xl space-y-6 text-sm leading-relaxed text-silver-400">
         <p>
-          APEX LTD (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;) respects your privacy. This policy
+          CAATG LTD (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;) respects your privacy. This policy
           outlines how we collect, use and protect your information when you use our website and services.
         </p>
         <p>

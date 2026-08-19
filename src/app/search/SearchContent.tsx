@@ -38,7 +38,7 @@ export function SearchContent() {
               Results for &ldquo;<span className="gold-text">{query}</span>&rdquo;
             </>
           ) : (
-            'Search APEX LTD'
+            'Search CAATG LTD'
           )}
         </h1>
       </div>

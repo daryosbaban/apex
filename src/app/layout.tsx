@@ -13,13 +13,13 @@ const sora = Sora({ subsets: ['latin'], variable: '--font-sora', display: 'swap'
 
 export const metadata: Metadata = {
   title: {
-    default: 'APEX LTD | Technology at Its Apex',
-    template: '%s | APEX LTD',
+    default: 'CAATG LTD | Technology, Elevated',
+    template: '%s | CAATG LTD',
   },
   description:
-    'APEX LTD is a premium technology and electronics retailer offering smartphones, laptops, tablets, gaming devices, monitors, audio, smartwatches, cameras and accessories from trusted global brands.',
+    'CAATG LTD is a premium technology and electronics retailer offering smartphones, laptops, tablets, gaming devices, monitors, audio, smartwatches, cameras and accessories from trusted global brands.',
   keywords: [
-    'APEX LTD',
+    'CAATG LTD',
     'electronics store',
     'buy smartphones',
     'buy laptops',

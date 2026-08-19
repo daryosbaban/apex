@@ -13,7 +13,7 @@ export default function WarrantyPage() {
       </div>
       <div className="mx-auto max-w-2xl space-y-6 text-sm leading-relaxed text-silver-400">
         <p>
-          Every product sold by APEX LTD includes, at minimum, a 1-Year APEX LTD Limited Warranty covering
+          Every product sold by CAATG LTD includes, at minimum, a 1-Year CAATG LTD Limited Warranty covering
           manufacturing defects. Select categories such as laptops, monitors, cameras and components include an
           extended 2-Year Manufacturer Warranty, as noted on each product page.
         </p>

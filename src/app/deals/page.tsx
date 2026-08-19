@@ -6,7 +6,7 @@ import { getDealProducts } from '@/lib/products';
 
 export const metadata: Metadata = {
   title: 'Deals',
-  description: 'Limited-time discounts on flagship smartphones, laptops, gaming devices and more at APEX LTD.',
+  description: 'Limited-time discounts on flagship smartphones, laptops, gaming devices and more at CAATG LTD.',
 };
 
 export default function DealsPage() {
@@ -20,7 +20,7 @@ export default function DealsPage() {
             <Flame className="h-4 w-4" /> Limited-Time Offers
           </span>
           <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
-            The Best Deals. <span className="gold-text">At Their Apex.</span>
+            The Best Deals. <span className="gold-text">Only at CAATG.</span>
           </h1>
           <p className="max-w-lg text-sm text-silver-500">
             Hand-picked discounts on flagship devices from Apple, Samsung, Sony, ASUS and more — while stocks last.

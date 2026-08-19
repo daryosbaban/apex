@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 
 const FAQS = [
   {
-    q: 'Are the products sold by APEX LTD authentic?',
+    q: 'Are the products sold by CAATG LTD authentic?',
     a: 'Yes. All products are sourced from authorized distributors and undergo quality checks before shipping.',
   },
   {

@@ -11,7 +11,7 @@ export function Newsletter() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
-    addToast('Thanks for subscribing to APEX LTD updates.');
+    addToast('Thanks for subscribing to CAATG LTD updates.');
     setEmail('');
   }
 
@@ -21,7 +21,7 @@ export function Newsletter() {
         <Mail className="h-8 w-8 text-gold-500" strokeWidth={1.5} />
         <h2 className="section-heading">Stay Ahead of the Curve</h2>
         <p className="max-w-md text-sm text-silver-500">
-          Subscribe for early access to new arrivals, exclusive deals and APEX LTD news.
+          Subscribe for early access to new arrivals, exclusive deals and CAATG LTD news.
         </p>
         <form onSubmit={handleSubmit} className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
           <input
