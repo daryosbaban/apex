@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { CreditCard, Wallet, Landmark, CheckCircle2, Lock } from 'lucide-react';
+import { CreditCard, Wallet, Landmark, Lock, ShieldCheck } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { products } from '@/lib/products';
 import { formatPrice } from '@/lib/utils';
@@ -16,12 +15,10 @@ const COUNTRIES = ['United States', 'United Kingdom', 'Canada', 'Australia', 'Un
 type PaymentMethod = 'card' | 'paypal' | 'bank';
 
 export default function CheckoutPage() {
-  const { lines, subtotal, clearCart } = useCart();
-  const router = useRouter();
+  const { lines, subtotal } = useCart();
   const [payment, setPayment] = useState<PaymentMethod>('card');
   const [placing, setPlacing] = useState(false);
-  const [placed, setPlaced] = useState(false);
-  const [orderId] = useState(() => `CAATG-${Math.floor(100000 + Math.random() * 900000)}`);
+  const [error, setError] = useState<string | null>(null);
 
   const items = lines
     .map((line) => ({ line, product: products.find((p) => p.id === line.productId) }))
@@ -29,30 +26,45 @@ export default function CheckoutPage() {
   const shipping = items.length === 0 || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
   const total = subtotal + shipping;
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setPlacing(true);
-    setTimeout(() => {
-      setPlacing(false);
-      setPlaced(true);
-      clearCart();
-    }, 1200);
-  }
+    setError(null);
 
-  if (placed) {
-    return (
-      <div className="container-apex flex flex-col items-center gap-5 py-32 text-center">
-        <CheckCircle2 className="h-16 w-16 text-gold-400" />
-        <h1 className="section-heading">Order Confirmed</h1>
-        <p className="max-w-md text-sm text-silver-500">
-          Thank you for shopping with CAATG LTD. Your order <span className="text-gold-400">#{orderId}</span> has been
-          placed. A confirmation email will be sent shortly. This is a demo checkout — no payment was processed.
-        </p>
-        <Link href="/shop" className="btn-gold mt-4">
-          Continue Shopping
-        </Link>
-      </div>
-    );
+    if (payment !== 'card') {
+      setError('This payment method is a preview only for now — please select Card to complete your order.');
+      return;
+    }
+
+    const formData = new FormData(e.currentTarget);
+    setPlacing(true);
+    try {
+      const res = await fetch('/api/checkout/session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: lines.map((l) => ({ productId: l.productId, quantity: l.quantity })),
+          customer: {
+            fullName: formData.get('fullName'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+          },
+          shipping: {
+            country: formData.get('country'),
+            city: formData.get('city'),
+            address: formData.get('address'),
+            notes: formData.get('notes'),
+          },
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || 'Something went wrong starting checkout.');
+      }
+      window.location.href = data.url;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setPlacing(false);
+    }
   }
 
   if (items.length === 0) {
@@ -80,9 +92,9 @@ export default function CheckoutPage() {
           <section>
             <h2 className="mb-5 font-display text-lg font-semibold text-white">Customer Information</h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <input required placeholder="Full Name" className="input-apex sm:col-span-2" />
-              <input required type="email" placeholder="Email Address" className="input-apex" />
-              <input required type="tel" placeholder="Phone Number" className="input-apex" />
+              <input name="fullName" required placeholder="Full Name" className="input-apex sm:col-span-2" />
+              <input name="email" required type="email" placeholder="Email Address" className="input-apex" />
+              <input name="phone" required type="tel" placeholder="Phone Number" className="input-apex" />
             </div>
           </section>
 
@@ -90,7 +102,7 @@ export default function CheckoutPage() {
           <section>
             <h2 className="mb-5 font-display text-lg font-semibold text-white">Shipping Information</h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <select required defaultValue="" className="input-apex cursor-pointer">
+              <select name="country" required defaultValue="" className="input-apex cursor-pointer">
                 <option value="" disabled className="bg-obsidian-900">
                   Select Country
                 </option>
@@ -100,9 +112,9 @@ export default function CheckoutPage() {
                   </option>
                 ))}
               </select>
-              <input required placeholder="City" className="input-apex" />
-              <input required placeholder="Delivery Address" className="input-apex sm:col-span-2" />
-              <textarea placeholder="Additional Notes (optional)" rows={3} className="input-apex sm:col-span-2 resize-none" />
+              <input name="city" required placeholder="City" className="input-apex" />
+              <input name="address" required placeholder="Delivery Address" className="input-apex sm:col-span-2" />
+              <textarea name="notes" placeholder="Additional Notes (optional)" rows={3} className="input-apex sm:col-span-2 resize-none" />
             </div>
           </section>
 
@@ -118,7 +130,10 @@ export default function CheckoutPage() {
                 <button
                   type="button"
                   key={id}
-                  onClick={() => setPayment(id)}
+                  onClick={() => {
+                    setPayment(id);
+                    setError(null);
+                  }}
                   className={`flex flex-col items-center gap-2 border px-4 py-5 text-center transition-colors ${
                     payment === id ? 'border-gold-500 bg-gold-500/5' : 'border-white/10 hover:border-white/25'
                   }`}
@@ -130,22 +145,23 @@ export default function CheckoutPage() {
             </div>
 
             {payment === 'card' && (
-              <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <input required placeholder="Card Number" className="input-apex sm:col-span-2" />
-                <input required placeholder="MM / YY" className="input-apex" />
-                <input required placeholder="CVC" className="input-apex" />
-              </div>
+              <p className="mt-5 flex items-center gap-2 text-sm text-silver-400">
+                <ShieldCheck className="h-4 w-4 shrink-0 text-gold-500" />
+                You&rsquo;ll enter your card details securely on Stripe&rsquo;s payment page — CAATG LTD never sees or
+                stores your card number.
+              </p>
             )}
             {payment === 'paypal' && (
-              <p className="mt-5 text-sm text-silver-500">You will be redirected to PayPal to complete your purchase securely. (Demo only)</p>
+              <p className="mt-5 text-sm text-silver-500">PayPal checkout is coming soon. Please select Card to complete your order today.</p>
             )}
             {payment === 'bank' && (
-              <p className="mt-5 text-sm text-silver-500">Bank transfer instructions will be emailed after order confirmation. (Demo only)</p>
+              <p className="mt-5 text-sm text-silver-500">Bank transfer is coming soon. Please select Card to complete your order today.</p>
             )}
 
             <p className="mt-4 flex items-center gap-2 text-xs text-silver-600">
-              <Lock className="h-3.5 w-3.5" /> This is a demo checkout. No real payment will be processed.
+              <Lock className="h-3.5 w-3.5" /> Payments are processed securely by Stripe.
             </p>
+            {error && <p className="mt-3 text-xs text-red-400">{error}</p>}
           </section>
         </div>
 
@@ -184,7 +200,7 @@ export default function CheckoutPage() {
             </div>
           </div>
           <button type="submit" disabled={placing} className="btn-gold mt-6 w-full disabled:opacity-60">
-            {placing ? 'Placing Order...' : `Place Order — ${formatPrice(total)}`}
+            {placing ? 'Redirecting to Payment...' : `Place Order — ${formatPrice(total)}`}
           </button>
         </aside>
       </form>
